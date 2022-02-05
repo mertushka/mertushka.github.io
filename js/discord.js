@@ -49,15 +49,19 @@ lanyard.onmessage = ({ data }) => {
       const user = parsedData.d;
 
       elements.card.style.opacity = "1";
-      elements.status.style.backgroundImage = `url("https://lanyard-profile-readme.vercel.app/api/745038831472083065?${new Date().getMilliseconds()}")`;
+      elements.status.style.backgroundImage = `url("https://lanyard-profile-readme.vercel.app/api/${
+        user.discord_user.id
+      }?${new Date().getMilliseconds()}")`;
       elements.username.innerText =
         user.discord_user.username + `#${user.discord_user.discriminator}`;
 
-      elements.avatar.src = `https://cdn.discordapp.com/avatars/745038831472083065/${user.discord_user.avatar}.png?size=128`;
+      elements.avatar.src = `https://cdn.discordapp.com/avatars/${user.discord_user.id}/${user.discord_user.avatar}.png?size=128`;
       setActiveStyle(statusColors[user.discord_status]);
     } else if (parsedData.t == "PRESENCE_UPDATE") {
       const user = parsedData.d;
-      elements.status.style.backgroundImage = `url("https://lanyard-profile-readme.vercel.app/api/745038831472083065?${new Date().getMilliseconds()}")`;
+      elements.status.style.backgroundImage = `url("https://lanyard-profile-readme.vercel.app/api/${
+        user.discord_user.id
+      }?${new Date().getMilliseconds()}")`;
       setActiveStyle(statusColors[user.discord_status]);
     }
   }
