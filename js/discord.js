@@ -24,7 +24,7 @@ lanyard.onmessage = ({ data }) => {
       JSON.stringify({
         op: OPCODES.INIT,
         d: {
-          subscribe_to_id: "937430365230989352",
+          subscribe_to_id: "963467332812939285",
         },
       })
     );
