@@ -8,7 +8,6 @@ const OPCODES = {
 const elements = {
   username: document.getElementById("username"),
   avatar: document.getElementById("avatar"),
-  status: document.getElementById("status"),
   card: document.getElementById("profile"),
 };
 
@@ -24,7 +23,7 @@ lanyard.onmessage = ({ data }) => {
       JSON.stringify({
         op: OPCODES.INIT,
         d: {
-          subscribe_to_id: "937430365230989352",
+          subscribe_to_id: "940131816692674591",
         },
       })
     );
@@ -49,19 +48,13 @@ lanyard.onmessage = ({ data }) => {
       const user = parsedData.d;
 
       elements.card.style.opacity = "1";
-      elements.status.style.backgroundImage = `url("https://lanyard-profile-readme.vercel.app/api/${
-        user.discord_user.id
-      }?${new Date().getMilliseconds()}")`;
       elements.username.innerText =
         user.discord_user.username + `#${user.discord_user.discriminator}`;
 
-      elements.avatar.src = `https://cdn.discordapp.com/avatars/${user.discord_user.id}/${user.discord_user.avatar}.png?size=128`;
+      elements.avatar.src = `https://cdn.discordapp.com/avatars/${user.discord_user.id}/${user.discord_user.avatar}`;
       setActiveStyle(statusColors[user.discord_status]);
     } else if (parsedData.t == "PRESENCE_UPDATE") {
       const user = parsedData.d;
-      elements.status.style.backgroundImage = `url("https://lanyard-profile-readme.vercel.app/api/${
-        user.discord_user.id
-      }?${new Date().getMilliseconds()}")`;
       setActiveStyle(statusColors[user.discord_status]);
     }
   }
