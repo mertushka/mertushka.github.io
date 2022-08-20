@@ -9,6 +9,7 @@ const elements = {
   username: document.getElementById("username"),
   avatar: document.getElementById("avatar"),
   card: document.getElementById("profile"),
+  presence: document.getElementById("discord-presence"),
 };
 
 const lanyard = new WebSocket("wss://api.lanyard.rest/socket");
@@ -16,6 +17,11 @@ const lanyard = new WebSocket("wss://api.lanyard.rest/socket");
 // On Message
 lanyard.onmessage = ({ data }) => {
   const parsedData = JSON.parse(data);
+  if (parsedData.d?.activities?.find((a) => a.type === 0) == undefined) {
+    elements.presence.setAttribute("hidden", "hidden");
+  } else {
+    elements.presence.removeAttribute("hidden");
+  }
 
   if (parsedData.op == OPCODES.HELLO) {
     // Identify
