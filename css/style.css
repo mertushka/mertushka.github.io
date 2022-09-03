@@ -355,6 +355,10 @@ select {
   color: #7d7d7d;
 }
 
+.aside .logo .logo-text {
+  font-size: 35px;
+}
+
 /* Home */
 .home {
   min-height: 100vh;
