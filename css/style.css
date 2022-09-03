@@ -1,5 +1,4 @@
 /* Font Awesome Icon */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
 /* Google font - Montserrat */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&display=swap");
@@ -170,6 +169,19 @@ select {
 }
 .hidden {
   display: none !important;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.icon-bubbles2 {
+  width: 1.125em;
 }
 
 /* Preloader */
